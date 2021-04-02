@@ -1,5 +1,6 @@
 import "./App.css";
 import invertColour from "./invertColour";
+import Visualizer from "./components/Visualizer";
 const record = require("./record.json");
 
 const rankArtists = () => {
@@ -61,40 +62,14 @@ const makeGraph = () => {
 }
 
 function App() {
-  let visualizer = [];
-  const keys = Object.keys(record);
-
-  keys.forEach((key, i) => {
-    if (record[key].color.length > 0) {
-      visualizer.push(
-        <div
-          className="block"
-          id={record[key].color}
-          title={`${key}: ${record[key].album} - ${record[key].artist}`}
-          style={{backgroundColor: record[key].color}}
-          key={i}
-        >
-          <div
-            className="blockText"
-            style={{color: invertColour(record[key].color, true)}}
-          >
-            {`${key}: ${record[key].album} - ${record[key].artist}`}
-          </div>
-        </div>
-      );
-    }
-  });
-
   // Make graph
   let Graph = makeGraph()
 
   return (
     <div className="App">
       <div className="container">
-        <div className="visualizer">
-          <h1>A Year In Music</h1>
-          {visualizer}
-        </div>
+        <h1>A Year In Music</h1>
+        <div className="visualizer">{Visualizer}</div>
         <h3>Favourite Artists</h3>
         <div className="graph">{Graph}</div>
       </div>
