@@ -1,14 +1,13 @@
 import "./App.css";
 import Visualizer from "./components/Visualizer";
 import FavouriteArtistsGraph from "./components/FavouriteArtistsGraph";
-// const record = require("./record.json");
 
 function App() {
   return (
     <div className="App">
       <div className="container">
         <h1>A Year In Music</h1>
-        {Visualizer}
+        <Visualizer />
         <FavouriteArtistsGraph />
       </div>
     </div>

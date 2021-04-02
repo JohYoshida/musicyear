@@ -6,6 +6,23 @@
   width: 90%;
 }
 
+.visualizer-flow {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  width: 100px;
+  height: 100%;
+}
+
 .block {
   display: flex;
   flex-direction: column;
