@@ -1,15 +1,9 @@
 import "./App.css";
 import Visualizer from "./components/Visualizer";
 import FavouriteArtistsGraph from "./components/FavouriteArtistsGraph";
-const record = require("./record.json");
-
-
+// const record = require("./record.json");
 
 function App() {
-  // Make graph
-  // let Graph = makeGraph()
-
-  // <div className="graph">{Graph}</div>
   return (
     <div className="App">
       <div className="container">
