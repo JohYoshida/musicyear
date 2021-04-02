@@ -1,12 +1,13 @@
+import "./Visualizer.css";
 import invertColour from "../invertColour";
 const record = require("../record.json");
 
-let Visualizer = [];
+let list = [];
 const keys = Object.keys(record);
 
 keys.forEach((key, i) => {
   if (record[key].color.length > 0) {
-    Visualizer.push(
+    list.push(
       <div
         className="block"
         id={record[key].color}
@@ -24,5 +25,7 @@ keys.forEach((key, i) => {
     );
   }
 });
+
+let Visualizer = <div className="visualizer">{list}</div>;
 
 export default Visualizer;

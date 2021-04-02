@@ -1,0 +1,25 @@
+.graph {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 90%;
+  padding-top: 10px;
+}
+
+.graph .bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph .bar .fill {
+  height: 100%;
+  width: 60%;
+  background-color: navy;
+  align-self: center;
+  border-radius: 3px;
+  /* border-top-right-radius: 3px;
+  border-top-left-radius: 3px; */
+}
+
+.graph .bar .whitespace {
+}

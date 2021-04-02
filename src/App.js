@@ -14,9 +14,9 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>A Year In Music</h1>
-        <div className="visualizer">{Visualizer}</div>
+        {Visualizer}
         <h3>Favourite Artists</h3>
-        <div className="graph">{FavouriteArtistsGraph}</div>
+        {FavouriteArtistsGraph}
       </div>
     </div>
   );

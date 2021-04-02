@@ -1,3 +1,5 @@
+import "./FavouriteArtistsGraph.css";
+
 const record = require("../record.json");
 
 const rankArtists = () => {
@@ -17,11 +19,8 @@ const rankArtists = () => {
   return artists;
 };
 
-const makeGraph = () => {
-  let data = Object.entries(rankArtists());
-  let max = Math.max(...Object.values(rankArtists()));
-
-  const sortedData = data.sort((a, b) => {
+const alphabetize = data =>
+  data.sort((a, b) => {
     var nameA = a[0].toUpperCase(); // ignore upper and lowercase
     var nameB = b[0].toUpperCase(); // ignore upper and lowercase
     if (nameA < nameB) {
@@ -32,11 +31,21 @@ const makeGraph = () => {
     }
     return 0; // names must be equal
   });
+
+const makeGraph = () => {
+  let data = Object.entries(rankArtists());
+  let max = Math.max(...Object.values(rankArtists()));
+
+  const sortedData = alphabetize(data);
   sortedData.forEach((item, i) => {
     let artist = data[i][0];
     let value = data[i][1];
     data[i] = (
-      <div className="bar" style={{width: `${100 / data.length}%`}} key={i}>
+      <div
+        className="bar"
+        style={{width: `${(100 / data.length).toFixed(2)}%`}}
+        key={i}
+      >
         <div
           className="whitespace"
           style={{flex: max - value}}
@@ -53,4 +62,6 @@ const makeGraph = () => {
   return data;
 };
 
-export default makeGraph();
+let FavouriteArtistsGraph = <div className="graph">{makeGraph()}</div>;
+
+export default FavouriteArtistsGraph;

@@ -1,0 +1,50 @@
+.visualizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 5px;
+  width: 100%;
+  background-color: blue;
+  color: transparent;
+}
+
+.block:hover {
+  color: black;
+  height: 50px;
+}
+
+.block:first-of-type {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.block:last-of-type {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.blockText {
+  width: 100%;
+  flex: 1;
+  opacity: 0;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.blockText:hover {
+  opacity: 1;
+  display: flex;
+  text-align: center;
+}
