@@ -9,8 +9,7 @@ function App() {
       <div className="container">
         <h1>A Year In Music</h1>
         {Visualizer}
-        <h3>Favourite Artists</h3>
-        {FavouriteArtistsGraph}
+        <FavouriteArtistsGraph />
       </div>
     </div>
   );
