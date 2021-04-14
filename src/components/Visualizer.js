@@ -60,10 +60,41 @@ export default class Visualizer extends React.Component {
     return list;
   };
 
+  makeYearList() {
+    const list = [];
+    const keys = Object.keys(record);
+
+    keys.forEach((key, i) => {
+      if (record[key].color.length > 0) {
+        let title = `${key}: ${record[key].album} - ${record[key].artist}`
+        list.push(
+          <div
+            className="block"
+            id={record[key].color}
+            title={title}
+            style={{backgroundColor: record[key].color}}
+            key={i}
+            onMouseEnter={() => {
+              this.setState({ title });
+            }}
+          >
+            <div
+              className="blockText"
+              style={{color: invertColour(record[key].color, true)}}
+            >
+              {`${key}: ${record[key].album} - ${record[key].artist}`}
+            </div>
+          </div>
+        );
+      }
+    });
+    return list;
+  };
+
   render() {
     let visualizer;
     if (this.state.mode === "year") {
-      visualizer = <div className="visualizer">{makeYearList()}</div>
+      visualizer = <div className="visualizer">{this.makeYearList()}</div>
     } else if (this.state.mode === "months") {
       let monthList = this.makeMonthList();
       let list = [];
@@ -78,42 +109,23 @@ export default class Visualizer extends React.Component {
 
     return (
       <div className="container">
-        <h4 onClick={() => {
+        <div
+          className="viz-buttons"
+          onClick={() => {
             let nextMode = this.state.mode === "year" ? "months" : "year"
             this.setState({ mode: nextMode})
-          }}>
-          visualize {this.state.mode === "year" ? "by month" : "all year"}
-        </h4>
+        }}>
+          <h4
+            className={this.state.mode === "months" ? "active" : "inactive"}
+          >by month</h4>
+          <h4 className="inactive">|</h4>
+          <h4
+            className={this.state.mode === "year" ? "active" : "inactive"}
+          >all year</h4>
+        </div>
         {visualizer}
         <h4>{this.state.title}</h4>
       </div>
     );
   }
 }
-
-const makeYearList = () => {
-  const list = [];
-  const keys = Object.keys(record);
-
-  keys.forEach((key, i) => {
-    if (record[key].color.length > 0) {
-      list.push(
-        <div
-          className="block"
-          id={record[key].color}
-          title={`${key}: ${record[key].album} - ${record[key].artist}`}
-          style={{backgroundColor: record[key].color}}
-          key={i}
-        >
-          <div
-            className="blockText"
-            style={{color: invertColour(record[key].color, true)}}
-          >
-            {`${key}: ${record[key].album} - ${record[key].artist}`}
-          </div>
-        </div>
-      );
-    }
-  });
-  return list;
-};
