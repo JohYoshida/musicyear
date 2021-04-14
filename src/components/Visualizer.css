@@ -15,6 +15,22 @@
   width: 90%;
 }
 
+.viz-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.viz-buttons .active {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.viz-buttons .inactive {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: grey;
+}
+
 .month {
   display: flex;
   flex-direction: column;
