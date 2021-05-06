@@ -8,7 +8,7 @@ export default class Visualizer extends React.Component {
     super(props);
     this.state = {
       mode: "months",
-      title: "test"
+      title: ""
     };
   }
 
