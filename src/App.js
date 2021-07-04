@@ -4,7 +4,7 @@ import Visualizer from "./components/Visualizer";
 import FavouriteArtistsGraph from "./components/FavouriteArtistsGraph";
 
 function App() {
-  const [footer, setFooter] = React.useState("test");
+  const [footer, setFooter] = React.useState("");
 
   const callback = (footer) => {
     setFooter(footer);
