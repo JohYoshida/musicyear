@@ -28,6 +28,7 @@ export default class FavouriteArtistsGraph extends React.Component {
           style={{width: `${(100 / data.length).toFixed(2)}%`}}
           key={i}
           onMouseEnter={() => {
+            this.props.callback(title);
             this.setState({ title });
           }}
         >
@@ -54,7 +55,6 @@ export default class FavouriteArtistsGraph extends React.Component {
         <div className="graph">
           {this.makeGraph()}
         </div>
-        <h4>{this.state.title}</h4>
       </div>
     );
   }

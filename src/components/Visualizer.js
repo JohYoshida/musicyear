@@ -41,6 +41,7 @@ export default class Visualizer extends React.Component {
             style={{backgroundColor: record[key].color}}
             key={j}
             onMouseEnter={() => {
+              this.props.callback(title);
               this.setState({ title });
             }}
           />
@@ -75,6 +76,7 @@ export default class Visualizer extends React.Component {
             style={{backgroundColor: record[key].color}}
             key={i}
             onMouseEnter={() => {
+              this.props.callback(title);
               this.setState({ title });
             }}
           >
@@ -94,7 +96,7 @@ export default class Visualizer extends React.Component {
   render() {
     let visualizer;
     if (this.state.mode === "year") {
-      visualizer = <div className="visualizer">{this.makeYearList()}</div>
+      visualizer = <div className="visualizer" key="year">{this.makeYearList()}</div>
     } else if (this.state.mode === "months") {
       let monthList = this.makeMonthList();
       let list = [];
@@ -104,7 +106,7 @@ export default class Visualizer extends React.Component {
         list.push(<div className="month" key={name}>{month}</div>);
       });
 
-      visualizer = <div className="visualizer-flow">{list}</div>
+      visualizer = <div className="visualizer-flow" key="flow">{list}</div>
     }
 
     return (
@@ -124,7 +126,6 @@ export default class Visualizer extends React.Component {
           >all year</h4>
         </div>
         {visualizer}
-        <h4>{this.state.title}</h4>
       </div>
     );
   }
